@@ -35,8 +35,8 @@ node {
         sh 'curl -o apoctl https://download.aporeto.com/apoctl/linux/apoctl'
         sh 'chmod +x apoctl'
         withEnv(["APOCTL_CREDS=$WORKSPACE/default.creds"]) {
-            sh "./apoctl api delete networkrulesetpolicy "guestbook backend intra-app" -n /${env.tenant}/${env.cloudAccount}/${env.group}/${env.ns} && \
-                ./apoctl api delete networkrulesetpolicy "guestbook frontend intra-app" -n /${env.tenant}/${env.cloudAccount}/${env.group}/${env.ns} && \
+            sh "./apoctl api delete networkrulesetpolicy \"guestbook backend intra-app\" -n /${env.tenant}/${env.cloudAccount}/${env.group}/${env.ns} && \
+                ./apoctl api delete networkrulesetpolicy \"guestbook frontend intra-app\" -n /${env.tenant}/${env.cloudAccount}/${env.group}/${env.ns} && \
                 ./apoctl api delete namespace /${env.tenant}/${env.cloudAccount}/${env.group}/${env.ns} -n /${env.tenant}/${env.cloudAccount}/${env.group}"
         }
     }
